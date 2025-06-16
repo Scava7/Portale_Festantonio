@@ -1,0 +1,42 @@
+# Ambiente virtuale
+venv/
+env/
+
+# Database SQLite
+*.sqlite3
+*.db
+
+# File temporanei / compilati
+*.pyc
+__pycache__/
+*.log
+
+# File di configurazione locale
+.env
+*.env
+.env.*
+
+# File di sistema / backup
+.DS_Store
+Thumbs.db
+
+# Media (upload immagini utenti)
+media/
+
+# Statici raccolti da collectstatic (cartella separata usata in prod)
+staticfiles/
+
+# IDE/editor
+.vscode/
+.idea/
+
+# File macOS
+Icon?
+
+config_static.py
+
+# IGNORA SOLO IL CONTENUTO STATICO RACCOLTO
+# ma NON ignorare la cartella static/ intera
+# (consente di tenere dentro static/css/stile_base.css, ecc)
+!static/
+!static/**/*
