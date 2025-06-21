@@ -1,14 +1,24 @@
-<!DOCTYPE html>
-<html>
+{% extends "_00_master.html" %}
 
-<body>
+{% block title %}
+  TORNEI FESTANTONIO - Dettagli iscrizione
+{% endblock %}
 
-<h1>{{ iscritto.firstname }} {{ iscritto.lastname }}</h1>
-  
-<p>Phone: {{ iscritto.phone }}</p>
-<p>Member since: {{ iscritto.timestamp }}</p>
 
-<p>Back to <a href="/app_iscrizioni">Iscrizioni</a></p>
+{% block content %}
+  <ul>
+    <h1>{{ iscritto.firstname }} {{ iscritto.lastname }}</h1>
+    
+    <p>Iscrizione numero: {{ iscritto.id }}</p>
+    <p>Codice Fiscale: {{ iscritto.codice_fiscale }}</p>
+    <p>email: {{ iscritto.email }}</p>
+    <p>Phone: {{ iscritto.phone }}</p>
+    <p>Iscritto il: {{ iscritto.timestamp }}</p>
+    <p>Torneo: {{ iscritto.torneo }}</p>
+    <p>Squadra: {{ iscritto.squadra }}</p>
+    <p>Note: {{ iscritto.note }}</p>
 
-</body>
-</html>
+
+    <p>Back to <a href="/app_iscrizioni">Iscrizioni</a></p>
+  </ul>
+{% endblock %}

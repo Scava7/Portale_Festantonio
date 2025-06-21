@@ -17,3 +17,8 @@ def view_details(request, id):
     'iscritto': iscritto,
   }
   return HttpResponse(template.render(context, request))
+
+
+def view_main(request):
+  template = loader.get_template('main.html')
+  return HttpResponse(template.render())

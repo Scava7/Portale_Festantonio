@@ -1,8 +1,9 @@
 from django.db import models
 
 class Iscrizione(models.Model):
-    firstname = models.CharField(max_length=255)
-    lastname = models.CharField(max_length=255)
+    first_name = models.CharField(max_length=255)
+    last_name = models.CharField(max_length=255)
+    data_di_nascita = models.DateField(null=True)
     phone = models.IntegerField(null=True)
     timestamp = models.DateField(null=True)
     torneo = models.CharField(max_length=100,null=True)
@@ -10,6 +11,7 @@ class Iscrizione(models.Model):
     codice_fiscale = models.CharField(max_length=16,null=True)
     note = models.TextField(blank=True, null=True)
     email = models.EmailField(blank=True, null=True)
-    is_paid = models.BooleanField(default=False)
+    pagato = models.BooleanField(default=False)
 
-
+    def __str__(self):
+        return f"{self.last_name} {self.first_name} {self.torneo}"
