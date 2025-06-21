@@ -3,4 +3,4 @@ from django.apps import AppConfig
 
 class MembersConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'app_members'
+    name = 'app_iscrizioni'
