@@ -6,12 +6,16 @@ class Iscrizione(models.Model):
     data_di_nascita = models.DateField(null=True)
     phone = models.IntegerField(null=True)
     timestamp = models.DateField(null=True)
-    torneo = models.CharField(max_length=100,null=True)
-    squadra = models.CharField(max_length=100,null=True)
-    codice_fiscale = models.CharField(max_length=16,null=True)
+    torneo = models.CharField(max_length=100, null=True)
+    squadra = models.CharField(max_length=100, null=True)
+    codice_fiscale = models.CharField(max_length=16, null=True)
     note = models.TextField(blank=True, null=True)
     email = models.EmailField(blank=True, null=True)
     pagato = models.BooleanField(default=False)
 
     def __str__(self):
         return f"{self.last_name} {self.first_name} {self.torneo}"
+
+    class Meta:
+        verbose_name = "Iscrizione"
+        verbose_name_plural = "Iscrizioni"
