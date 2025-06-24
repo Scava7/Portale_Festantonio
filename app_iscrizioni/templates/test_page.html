@@ -1,0 +1,30 @@
+{% extends "_00_master.html" %}
+
+{% block title %}
+  TestPage
+{% endblock %}
+
+
+{% block content %}
+  <p><a href="/">HOME</a></p>
+
+  <h1>Test Page</h1>
+  
+<table border='10'>
+  <tr>
+    <th>ID</th>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Birthday</th>
+  </tr>
+  {% for x in iscrizioni_tornei %}
+    <tr>
+      <td>{{ x.id }}</td>
+      <td>{{ x.first_name }}</td>
+      <td>{{ x.last_name }}</td>
+      <td>{{ x.data_di_nascita}}</td>
+    </tr>
+  {% endfor %}
+</table>
+
+{% endblock %}
