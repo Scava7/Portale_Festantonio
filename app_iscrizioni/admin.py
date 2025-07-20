@@ -5,6 +5,8 @@ from .models import Iscrizione
 
 class IscrizioneAdmin(admin.ModelAdmin):
   list_display = ("last_name", "first_name", "torneo",)
+  prepopulated_fields = {"slug": ("first_name", "last_name", "squadra", "torneo")}
+  readonly_fields = ['slug']
 
 admin.site.register(Iscrizione , IscrizioneAdmin)
 

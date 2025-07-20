@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.text import slugify
 
 class Iscrizione(models.Model):
     first_name = models.CharField(max_length=255)
@@ -17,7 +18,8 @@ class Iscrizione(models.Model):
     codice_fiscale = models.CharField(max_length=16, null=True)
     note = models.TextField(blank=True, null=True)
     email = models.EmailField(blank=True, null=True)
-    pagato = models.BooleanField(default=False)
+    pagato = models.BooleanField(default=False, null=False)
+    slug = models.SlugField(default="", null=False)
 
     def __str__(self):
         return f"{self.last_name} {self.first_name} {self.torneo}"
@@ -25,3 +27,14 @@ class Iscrizione(models.Model):
     class Meta:
         verbose_name = "Iscrizione"
         verbose_name_plural = "Iscrizioni"
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            base_slug = slugify(f"{self.first_name}-{self.last_name}-{self.squadra}-{self.torneo}")
+            slug = base_slug
+            counter = 1
+            while Iscrizione.objects.filter(slug=slug).exclude(pk=self.pk).exists():
+                slug = f"{base_slug}-{counter}"
+                counter += 1
+            self.slug = slug
+        super().save(*args, **kwargs)

@@ -12,7 +12,7 @@
   
   <ul>
     {% for x in iscrizioni_tornei %}
-      <li><a href="details/{{ x.id }}">{{ x.first_name }} {{ x.last_name }}</a></li>
+      <li><a href="{% url 'details' x.slug %}">{{ x.first_name }} {{ x.last_name }}</a></li>
     {% endfor %}
   </ul>
 

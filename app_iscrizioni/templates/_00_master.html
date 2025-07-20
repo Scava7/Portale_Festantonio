@@ -3,24 +3,8 @@
 <head>
     <meta charset="utf-8">
     <title>{% block title %}Tornei Festantonio{% endblock %}</title>
-    <style>
-        body {
-            background-color: #e20456; /* Azzurro chiaro */
-            margin: 0; /* Toglie spazi bianchi esterni */
-            font-family: sans-serif; /* Facoltativo: font più moderno */
-        }
-
-        header {
-            padding: 20px;
-            background-color: #f9b313; /* Verde scuro */
-            color: white;
-            text-align: center;
-        }
-
-        main {
-            padding: 20px;
-        }
-    </style>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'myfirst.css' %}">
 </head>
 <body>
 
