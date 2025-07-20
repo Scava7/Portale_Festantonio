@@ -3,19 +3,27 @@
 <head>
     <meta charset="utf-8">
     <title>{% block title %}Tornei Festantonio{% endblock %}</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'myfirst.css' %}">
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
 </head>
 <body>
 
-    <header>
-        <h1>FESTANTONIO</h1>
-    </header>
+<header>
+    <h1>FESTANTONIO</h1>
+</header>
 
-    <main>
-        {% block content %}
-        {% endblock %}
-    </main>
+<div class="container">
+  <ul class="nav bg-info">
+    <li class="nav-item">
+      <a class="nav-link link-light" href="/">HOME</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link link-light" href="/app_iscrizioni">ISCRIZIONI</a>
+    </li>
+  </ul>
 
-</body>
+  {% block content %}
+  {% endblock %}
+</div>
 </html>

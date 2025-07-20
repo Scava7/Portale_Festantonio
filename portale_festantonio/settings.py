@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app_iscrizioni',  # Custom app
+    'bootstrap5',  # Bootstrap 5 integration
 ]
 
 MIDDLEWARE = [
